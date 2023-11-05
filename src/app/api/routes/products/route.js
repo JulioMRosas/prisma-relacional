@@ -3,8 +3,8 @@ import { prisma } from "@/libs/prisma";
 
 export const GET = async (request) => {
     try {
-        const users = await prisma.user.findMany();
-        return NextResponse.json(users);
+        const products = await prisma.product.findMany();
+        return NextResponse.json(products);
     } catch (error) {
         if (error instanceof Error) {
             return NextResponse.json(
@@ -17,15 +17,15 @@ export const GET = async (request) => {
 
 export const POST = async (request) => {
     try {
-        const { username, password, email } = await request.json();
-        const newUser = await prisma.user.create({
+        const { productName, productDescription, productPrice, shoppingCart } = await request.json();
+        const newProduct = await prisma.product.create({
             data: {
-                username,
-                password,
-                email
+                productName,
+                productDescription,
+                productPrice: parseFloat(productPrice),
             }
         })
-        return NextResponse.json(newUser);
+        return NextResponse.json(newProduct);
     } catch (error) {
         if (error instanceof Error) {
             return NextResponse.json(

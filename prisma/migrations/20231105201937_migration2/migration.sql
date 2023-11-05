@@ -2,8 +2,8 @@
 CREATE TABLE "User" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "username" TEXT NOT NULL,
-    "password" TEXT NOT NULL,
     "email" TEXT NOT NULL,
+    "password" TEXT NOT NULL,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL
 );
@@ -15,8 +15,8 @@ CREATE TABLE "Product" (
     "productDescription" TEXT NOT NULL,
     "productPrice" REAL NOT NULL,
     "productCreatedAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "shoppingCartId" TEXT NOT NULL,
-    CONSTRAINT "Product_shoppingCartId_fkey" FOREIGN KEY ("shoppingCartId") REFERENCES "ShoppingCart" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+    "shoppingCartId" TEXT,
+    CONSTRAINT "Product_shoppingCartId_fkey" FOREIGN KEY ("shoppingCartId") REFERENCES "ShoppingCart" ("id") ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 -- CreateTable

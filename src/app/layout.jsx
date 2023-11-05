@@ -2,7 +2,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { UserContextProvider } from '@/provider/userProvider';
+import { ShopContextProvider } from '@/provider/shopProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,9 +16,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${inter.className} h-screen bg-[#f3f3f3]`}>
         <Header/>
-        <UserContextProvider>
+        <ShopContextProvider>
           {children}
-        </UserContextProvider>
+        </ShopContextProvider>
         <Footer/>
       </body>
     </html>

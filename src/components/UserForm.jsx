@@ -1,7 +1,7 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useUserContext } from '@/provider/userProvider';
+import { useShopContext } from '@/provider/shopProvider';
 import { addUser } from '@/libs/addUser';
 
 const UserForm = () => {
@@ -10,7 +10,7 @@ const UserForm = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(false);
-  const { user, setUser} = useUserContext();
+  const { user, setUser} = useShopContext();
   const route = useRouter();
 
   const handleSubmit = async (e) => {
@@ -32,15 +32,13 @@ const UserForm = () => {
     if (user === null) {
       addUser(newUser);
       setUser(null);
-      route.push("/");
+      route.push("/registeruser");
     }
     else if (user !== null) {
       updateUser(newUser, user.id);
       setUser(null);
       route.push("/");
     }
-
-    await addUser(newUser);
   }
 
   return (
