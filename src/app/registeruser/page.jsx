@@ -3,7 +3,9 @@ import UserForm from '@/components/UserForm';
 
 const registerUserPage = () => {
   return (
-    <div><UserForm/></div>
+    <main className='flex justify-center h-screen'>
+      <UserForm/>
+    </main>
   )
 }
 
