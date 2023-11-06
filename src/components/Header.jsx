@@ -13,7 +13,7 @@ const Header = () => {
       {/* Normal menu */}
       <header className='hidden sm:grid grid-cols-3 p-6 bg-[#DDDDDD] text-[#333]'>
         <Link href={"../"} className='justify-self-center'>Inicio</Link>
-        <Popover>
+        <Popover className="justify-self-center">
           <Popover.Button>Registrar</Popover.Button>
           <Transition
           enter="transition-opacity duration-75"
@@ -32,7 +32,7 @@ const Header = () => {
           </Popover.Panel>
         </Transition>
         </Popover>
-        <Popover>
+        <Popover className="justify-self-center">
           <Popover.Button>Ver Registros</Popover.Button>
           <Transition
           enter="transition-opacity duration-75"

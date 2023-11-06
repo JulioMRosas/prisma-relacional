@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useShopContext } from '@/provider/shopProvider';
 import { addProduct } from '@/libs/addProduct';
+import { updateProduct } from '@/libs/updateProduct';
 
 const ProductForm = () => {
     const [productName, setProductName] = useState("");
@@ -36,7 +37,7 @@ const ProductForm = () => {
         else if (product !== null) {
         updateProduct(newProduct, product.id);
         setProduct(null);
-        route.push("/");
+        route.push("/productslist");
         }
     }
 

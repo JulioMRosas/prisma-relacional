@@ -52,7 +52,7 @@ export const PUT = async (request, { params: {id} }) => {
             data: {
                 productName,
                 productDescription,
-                productPrice
+                productPrice: parseFloat(productPrice)
             }
         })
     

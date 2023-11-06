@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useShopContext } from '@/provider/shopProvider';
 import { addUser } from '@/libs/addUser';
+import { updateUser } from '@/libs/updateUser';
 
 const UserForm = () => {
   const [username, setUsername] = useState("");
@@ -32,12 +33,12 @@ const UserForm = () => {
     if (user === null) {
       addUser(newUser);
       setUser(null);
-      route.push("/registeruser");
+      route.push("../registeruser");
     }
     else if (user !== null) {
       updateUser(newUser, user.id);
       setUser(null);
-      route.push("/");
+      route.push("../userslist");
     }
   }
 
