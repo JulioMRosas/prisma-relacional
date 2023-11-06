@@ -72,11 +72,15 @@ const Header = () => {
               <li>
                 <Link href={'../'}><HomeIcon className='-translate-y-1 mr-1'/>Inicio</Link>
               </li>
-              <li>
-                <Link href={'../register'}><AppRegistrationIcon className='-translate-y-1 mr-1'/>Registro</Link>
+              <li className='flex flex-col'>
+                <h3><AppRegistrationIcon className='-translate-y-1 mr-1'></AppRegistrationIcon>Registrar</h3>
+                <Link href={'../registeruser'}>Usuarios</Link>
+                <Link href={'../registerproduct'}>Productos</Link>
               </li>
-              <li>
-                <Link href={'../consult'}><PageviewIcon className='-translate-y-1 mr-1'/>Ver Registros</Link>
+              <li className='flex flex-col'>
+                <h3><PageviewIcon className='-translate-y-1 mr-1'/>Ver Registros</h3>
+                <Link href={'../userslist'}>Usuarios</Link>
+                <Link href={'../productslist'}>Productos</Link>
               </li>
             </ul>
           </Popover.Panel>
