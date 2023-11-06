@@ -25,7 +25,7 @@ const Header = () => {
           leaveTo="opacity-0"
           >
           <Popover.Overlay className="fixed inset-0 bg-black opacity-30" />
-          <Popover.Panel className='absolute text-[#333] bg-[#DDDDDD] p-6 rounded-md w-2/4 border border-[#333]'>
+          <Popover.Panel className='absolute text-[#333] bg-[#DDDDDD] p-6 rounded-md border border-[#333]'>
             <ul className='flex flex-col space-y-5'>
               <Link href={"../registeruser"}>Usuarios</Link>
               <Link href={"../registerproduct"}>Productos</Link>
@@ -44,7 +44,7 @@ const Header = () => {
           leaveTo="opacity-0"
           >
           <Popover.Overlay className="fixed inset-0 bg-black opacity-30" />
-          <Popover.Panel className='absolute text-[#333] bg-[#DDDDDD] p-6 rounded-md w-2/4 border border-[#333]'>
+          <Popover.Panel className='absolute text-[#333] bg-[#DDDDDD] p-6 rounded-md border border-[#333]'>
             <ul className='flex flex-col space-y-5'>
               <Link href={"../userslist"}>Usuarios</Link>
               <Link href={"../productslist"}>Productos</Link>
