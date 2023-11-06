@@ -6,12 +6,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import PageviewIcon from '@mui/icons-material/Pageview';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const Header = () => {
   return (
     <>
       {/* Normal menu */}
-      <header className='hidden sm:grid grid-cols-3 p-6 bg-[#DDDDDD] text-[#333]'>
+      <header className='hidden sm:grid grid-cols-4 p-6 bg-[#DDDDDD] text-[#333]'>
         <Link href={"../"} className='justify-self-center'>Inicio</Link>
         <Popover className="justify-self-center">
           <Popover.Button>Registrar</Popover.Button>
@@ -51,6 +52,7 @@ const Header = () => {
           </Popover.Panel>
         </Transition>
         </Popover>
+        <Link href={"../shoppingcartlist"} className='justify-self-center'><ShoppingCartIcon/></Link>
       </header>
 
       {/* Responsive menu */}
@@ -81,6 +83,9 @@ const Header = () => {
                 <h3><PageviewIcon className='-translate-y-1 mr-1'/>Ver Registros</h3>
                 <Link href={'../userslist'}>Usuarios</Link>
                 <Link href={'../productslist'}>Productos</Link>
+              </li>
+              <li>
+                <Link href={"../shoppingcartlist"}><ShoppingCartIcon/></Link>
               </li>
             </ul>
           </Popover.Panel>
