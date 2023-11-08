@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useShopContext } from '@/provider/shopProvider';
 import { addUser } from '@/libs/addUser';
 import { updateUser } from '@/libs/updateUser';
+import { addShoppingCart } from '@/libs/addShoppingCart';
 
 const UserForm = () => {
   const [username, setUsername] = useState("");
@@ -11,7 +12,7 @@ const UserForm = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(false);
-  const { user, setUser} = useShopContext();
+  const { user, setUser, shoppingCart, setShoppingCart } = useShopContext();
   const route = useRouter();
 
   const handleSubmit = async (e) => {
@@ -31,7 +32,11 @@ const UserForm = () => {
     }
 
     if (user === null) {
-      addUser(newUser);
+      const userId = await addUser(newUser);
+      const newShoppingCart = {
+        userId
+      }
+      addShoppingCart(newShoppingCart);
       setUser(null);
       route.push("../registeruser");
     }

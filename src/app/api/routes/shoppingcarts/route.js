@@ -14,3 +14,26 @@ export const GET = async (request) => {
         }
     }
 }
+
+export const POST = async (request) => {
+    try {
+        const { userId } = await request.json();
+        const newShoppingCart = await prisma.shoppingCart.create({
+            data: {
+                user: {
+                    connect: {
+                        id: userId
+                    }
+                }
+            }
+        })
+        return NextResponse.json(newShoppingCart);
+    } catch (error) {
+        if (error instanceof Error) {
+            return NextResponse.json(
+                {error: error.stack},
+                {status: 500}
+            )
+        }
+    }
+}
