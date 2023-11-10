@@ -10,12 +10,13 @@ const UserCard = ({ data }) => {
   const route = useRouter();
 
   return (
-    <ul className='max-w-[200px] max-h-[200px] p-6 bg-white border border-[#ccc]'>
+    <ul className='flex flex-col space-y-2 max-w-[200px] max-h-[250px] p-6 bg-white border border-[#ccc]'>
         <li>{username}</li>
         <li>{email}</li>
-        <input type="button" value="Eliminar" className='cursor-pointer' 
+        <li>{password}</li>
+        <input type="button" value="Eliminar" className='p-2 rounded-lg bg-[#00A1C6] text-[#fff] cursor-pointer' 
             onClick={async() => await deleteUser(data)}/>
-        <input type="button" value="Editar" className='cursor-pointer' 
+        <input type="button" value="Editar" className='p-2 rounded-lg bg-[#00A1C6] text-[#fff] cursor-pointer' 
             onClick={() => {
                 setUser(data)
                 route.push("../registeruser")
