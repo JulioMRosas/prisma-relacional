@@ -3,12 +3,14 @@ import { prisma } from "@/libs/prisma";
 
 export const GET = async (request, { params: {id} }) => {
     try {
-        const shoppingCart = await prisma.shoppingCart.findFirst({
-            where: {
-                id
-            }
+        const shoppingCart = await prisma.shoppingCart.findUnique({
+            where: { id },
+            include: {
+                user: true,
+                products: true
+            } 
         })
-    
+
         return NextResponse.json(shoppingCart);
         
     } catch (error) {
